@@ -195,7 +195,7 @@ end
 local _chk_dmg_too_soon_orig = PlayerDamage._chk_dmg_too_soon
 function PlayerDamage:_chk_dmg_too_soon(damage, ...)
 	if not deathvox:IsHoppipOverhaulEnabled() then
-		return _chk_dmg_too_soon_orig(self, attack_data, ...)
+		return _chk_dmg_too_soon_orig(self, damage, ...)
     else
 		local next_allowed_dmg_t = type(self._next_allowed_dmg_t) == "number" and self._next_allowed_dmg_t or Application:digest_value(self._next_allowed_dmg_t, false)
 		local t = managers.player:player_timer():time()
